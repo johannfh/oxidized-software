@@ -16,7 +16,6 @@ proc-macro2 = { version = "1" }
 
 # local
 utils = { path = "./utils", version = "0.1.0" }
-utils_macros = { path = "./utils_macros", version = "0.1.0" }
 
 
 
