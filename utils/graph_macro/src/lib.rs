@@ -170,7 +170,8 @@ impl Parse for GraphInput {
             }
         }
 
-        todo!();
+        let simple_nodes = input.parse_terminated(NodeDef::parse, Token![,])?;
+        Ok(GraphInput::SimpleNodes(simple_nodes))
     }
 }
 
@@ -245,7 +246,7 @@ pub fn graph(input: TokenStream) -> TokenStream {
                     },
                     ConnectionDef::Undirected { from, _double_arrow_token, to, weight } => {
                         let weight_val = weight.map(|(_, l)| l.base10_parse().unwrap_or(1.0)).unwrap_or(1.0);
-                        (from, to, quote! { #weight_val }, false)
+                        (from, to, quote! { #weight_val }, true)
                     },
                 };
 
