@@ -204,7 +204,6 @@ pub fn graph(input: TokenStream) -> TokenStream {
 
                 node_inserts.extend(quote! {
                     graph.insert(::utils::graph::Node::new(#value));
-                    println!("AHH");
                 });
             }
             generated_output.extend(node_inserts);
