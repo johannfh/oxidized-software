@@ -1,6 +1,27 @@
-[package]
-name = "oxidized-software"
-version = "0.1.0"
-edition = "2024"
+[workspace]
+resolver = "2"
+members = [
+    # libraries
+    "utils",
 
-[dependencies]
+    # binaries
+    "example",
+]
+
+[workspace.dependencies]
+# external
+syn = { version = "2", features = ["full", "extra-traits"] }
+quote = { version = "1" }
+proc-macro2 = { version = "1" }
+
+# local
+utils = { path = "./utils", version = "0.1.0" }
+utils_macros = { path = "./utils_macros", version = "0.1.0" }
+
+
+
+#[package]
+#name = "oxidized-software"
+#version = "0.1.0"
+#edition = "2024"
+
