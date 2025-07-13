@@ -1,7 +1,8 @@
 [package]
-name = "example"
+name = "wavefront_obj"
 version = "0.1.0"
 edition = "2024"
 
 [dependencies]
-utils.workspace = true
+thiserror.workspace = true
+
