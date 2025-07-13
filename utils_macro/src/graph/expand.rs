@@ -1,13 +1,18 @@
 use std::collections::HashSet;
 
-use crate::ast::{ConnectionDef, GraphInput};
+use super::ast::{ConnectionDef, GraphInput};
 use proc_macro::TokenStream;
 use quote::quote;
 use syn::Error as SynError;
 
-pub fn proc_macro(input: &GraphInput) -> TokenStream {
+
+pub fn expand(input: GraphInput) -> TokenStream {
+    
     let mut generated_output = quote! {
-        let mut graph = ::utils::graph::Graph::new();
+        use ::utils::graph::{Graph, Node, NodeID};
+        use ::std::collections::HashMap;
+
+        let mut graph = Graph::new();
     };
 
     match input {
@@ -41,7 +46,7 @@ pub fn proc_macro(input: &GraphInput) -> TokenStream {
             nodes, connections, ..
         } => {
             let id_map_init = quote! {
-                let mut id_map: ::std::collections::HashMap<&'static str, ::utils::graph::NodeID> = ::std::collections::HashMap::new();
+                let mut id_map: HashMap<&'static str, NodeID> = HashMap::new();
             };
             let mut node_inserts = quote! {};
             let mut node_names: HashSet<String> = HashSet::new();
@@ -60,7 +65,7 @@ pub fn proc_macro(input: &GraphInput) -> TokenStream {
                 }
 
                 node_inserts.extend(quote! {
-                    let node_id = graph.insert(::utils::graph::Node::new(#value));
+                    let node_id = graph.insert(Node::new(#value));
                     id_map.insert(stringify!(#name), node_id);
                 });
             }

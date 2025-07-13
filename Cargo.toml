@@ -3,6 +3,8 @@ resolver = "2"
 members = [
     # libraries
     "utils",
+    "utils_core",
+    "utils_macro",
     "filetypes",
 
     # binaries
@@ -17,6 +19,8 @@ proc-macro2 = { version = "1" }
 thiserror = { version = "2" }
 
 # local
-utils = { path = "./utils", version = "0.1.0" }
+utils = { path = "utils", version = "0.1.0" }
+utils_core = { path = "utils_core", version = "0.1.0" }
+utils_macro = { path = "utils_macro", version = "0.1.0" }
 filetypes = { path = "./filetypes", version = "0.1.0" }
 

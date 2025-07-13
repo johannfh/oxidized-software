@@ -8,7 +8,7 @@ use syn::{
 syn::custom_punctuation!(DoubleArrow, <->);
 
 #[derive(Debug)]
-pub struct NodeDef {
+pub(super) struct NodeDef {
     pub name: Ident,
     _equal_token: Token![=],
     pub value: Expr,
@@ -29,7 +29,7 @@ impl Parse for NodeDef {
 }
 
 #[derive(Debug)]
-pub enum ConnectionDef {
+pub(super) enum ConnectionDef {
     Directed {
         from: Ident,
         _arrow_token: Token![->],
@@ -87,7 +87,7 @@ impl Parse for ConnectionDef {
 }
 
 #[derive(Debug)]
-pub enum GraphInput {
+pub(super) enum GraphInput {
     Empty,
     SimpleNodes(Punctuated<NodeDef, Token![,]>),
     Structured {

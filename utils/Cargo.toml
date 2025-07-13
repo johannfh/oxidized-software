@@ -4,4 +4,6 @@ version = "0.1.0"
 edition = "2024"
 
 [dependencies]
-graph_macro = { path = "./graph_macro", version = "0.1.0" }
+utils_core = { path = "../utils_core" }
+utils_macro = { path = "../utils_macro" }
+
