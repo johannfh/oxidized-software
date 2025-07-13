@@ -3,6 +3,7 @@ resolver = "2"
 members = [
     # libraries
     "utils",
+    "filetypes",
 
     # binaries
     "example",
@@ -16,11 +17,5 @@ proc-macro2 = { version = "1" }
 
 # local
 utils = { path = "./utils", version = "0.1.0" }
-
-
-
-#[package]
-#name = "oxidized-software"
-#version = "0.1.0"
-#edition = "2024"
+filetypes = { path = "./filetypes", version = "0.1.0" }
 
