@@ -5,9 +5,7 @@ use proc_macro::TokenStream;
 use quote::quote;
 use syn::Error as SynError;
 
-
 pub fn expand(input: GraphInput) -> TokenStream {
-    
     let mut generated_output = quote! {
         use ::utils::graph::{Graph, Node, NodeID};
         use ::std::collections::HashMap;
