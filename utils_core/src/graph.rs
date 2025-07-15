@@ -1,7 +1,4 @@
-use std::{
-    cmp::Ordering,
-    collections::{HashMap, hash_map},
-};
+use std::collections::{HashMap, hash_map};
 
 #[derive(Debug, Default)]
 pub struct Graph<T> {
@@ -40,7 +37,7 @@ impl<T> Graph<T> {
         self.connect(to_id, from_id, weight);
     }
 
-    pub fn shortest_distance(&self, from_id: NodeID, to_id: NodeID) -> f64 {
+    /*pub fn shortest_distance(&self, from_id: NodeID, to_id: NodeID) -> f64 {
         let mut adj: HashMap<NodeID, Vec<(NodeID, f64)>> = HashMap::new();
 
         for (f_id, t_id, weight) in &self.connections {
@@ -52,7 +49,7 @@ impl<T> Graph<T> {
         println!("{:#?}", adj);
 
         todo!()
-    }
+    }*/
 
     pub fn get_node(&self, id: &NodeID) -> Option<&Node<T>> {
         self.nodes.get(&id)
@@ -69,7 +66,7 @@ impl<T> Graph<T> {
     }
 }
 
-#[derive(Copy, Clone, PartialEq)]
+/*#[derive(Copy, Clone, PartialEq)]
 struct State {
     cost: f64,
     position: NodeID,
@@ -88,7 +85,7 @@ impl Ord for State {
     fn cmp(&self, other: &Self) -> Ordering {
         self.partial_cmp(other).unwrap_or(Ordering::Equal)
     }
-}
+}*/
 
 /// An iterator of the Nodes of a Graph
 pub struct Iter<'a, T> {

@@ -5,7 +5,7 @@ members = [
     "utils",
     "utils_core",
     "utils_macro",
-    "filetypes",
+    #"filetypes",
 
     # binaries
     "example",
