@@ -17,12 +17,12 @@ pub(super) struct NodeDef {
 impl Parse for NodeDef {
     fn parse(input: ParseStream) -> Result<Self> {
         let name = input.parse()?;
-        let colon_token = input.parse()?;
+        let equal_token = input.parse()?;
         let value = input.parse()?;
 
         Ok(Self {
             name,
-            _equal_token: colon_token,
+            _equal_token: equal_token,
             value,
         })
     }
